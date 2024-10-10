@@ -1,0 +1,45 @@
+Advanced Stats
+*Offenseive Rating*
+OffRtg = (Tm_Pts / POSS) x 100
+
+*Defensive Rating*
+DefRtg = (Opp_Pts / POSS) x 100
+
+*Net Rating*
+NetRtg = OffRtg - DefRtg
+
+*Pace*
+Pace=(POSS / MIN) x 48
+
+*Possessions(Simple)
+POSS = FGA - OReb + 0.4 x FTA + TOV
+
+*Possessions(Complex)*
+POSS = FGA - 
+(OReb / OReb + Opp_DReb) x (FGA - FGM) x 1.07
++ 0.44 x FTA
++ TOV
+
+*Expect Pace*
+EPace = Tm_Pace - (Leage AVG Pace - Opp_Pace)
+
+*Team Score*
+Tm_Score =
+(Tm_OffRtg
+-(League AVG OffRtg - Opp_DefRtg))
+/100 x Epace
+
+*Spread*
+Spread = Opp_Score - Tm_Score
+
+*Total*
+Total = Tm_Score + Opp_Score
+
+*Win Prob*
+Win% =NORM.DIST
+(
+-Spread,
+0,
+9.56,
+True
+)
